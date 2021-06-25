@@ -47,7 +47,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'capstone.urls'
 
@@ -75,8 +78,15 @@ WSGI_APPLICATION = 'capstone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'capstone_database',
+        'USER': 'root',
+        'PASSWORD': 'blueguppy370',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTION': {
+            'autocommit': True
+        }
     }
 }
 
