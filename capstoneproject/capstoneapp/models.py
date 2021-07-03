@@ -49,3 +49,16 @@ class User(models.Model):
 
     def __int__(self):
         return self.username
+
+
+class Lost(models.Model):
+    name = models.CharField(max_length=50)
+    lastSeen = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    pictures = models.CharField(max_length=50)
+    user = models.ForeignKey('User', default=None, null=True, on_delete=models.CASCADE)
+
+    def __int__(self):
+        return self.name
