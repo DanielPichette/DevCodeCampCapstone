@@ -6,7 +6,7 @@ class PetListing(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
     age = models.CharField(max_length=50)
-    nature = models.CharField(max_length=50)
+    fixed = models.CharField(max_length=50)
     spayed = models.CharField(max_length=50)
     gender = models.CharField(max_length=50)
     breed = models.CharField(max_length=50)
@@ -16,6 +16,20 @@ class PetListing(models.Model):
     description = models.CharField(max_length=20000)
     pictures = models.CharField(max_length=50)
     user = models.CharField(max_length=50)
+
+    def __int__(self):
+        return self.name
+
+
+class ItemListing(models.Model):
+    name = models.CharField(max_length=50)
+    brand = models.CharField(max_length=500)
+    condition = models.CharField(max_length=500)
+    animal = models.CharField(max_length=500)
+    category = models.CharField(max_length=500)
+    description = models.CharField(max_length=2000)
+    pictures = models.CharField(max_length=50)
+    user = models.ForeignKey('User', default=None, null=True, on_delete=models.CASCADE)
 
     def __int__(self):
         return self.name
