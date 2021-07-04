@@ -13,7 +13,7 @@ class PetListing(models.Model):
     price = models.CharField(max_length=50)
     children = models.CharField(max_length=50)
     pets = models.CharField(max_length=50)
-    description = models.CharField(max_length=20000)
+    description = models.CharField(max_length=2000)
     pictures = models.CharField(max_length=50)
     user = models.CharField(max_length=50)
 
