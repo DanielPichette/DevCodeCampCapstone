@@ -12,7 +12,7 @@ class PetListingSerializer(serializers.ModelSerializer):
                   'description', 'pictures', 'user']
 
 
-class ItemSerializer(serializers.ModelSerializer):
+class ItemListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemListing
         fields = ['id', 'name', 'condition', 'animal', 'category', 'description', 'pictures', 'user']
