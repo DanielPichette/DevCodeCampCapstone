@@ -179,7 +179,7 @@ class LostPetById(APIView):
 
     def put(self, request, pk):
         updateLostPet = self.get_object(pk)
-        serializer = UserSerializer(updateLostPet, data=request.data)
+        serializer = LostSerializer(updateLostPet, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)

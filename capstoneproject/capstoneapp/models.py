@@ -6,14 +6,16 @@ class PetListing(models.Model):
     name = models.CharField(max_length=50, null=True, blank=True)
     type = models.CharField(max_length=50, null=True, blank=True)
     age = models.CharField(max_length=50, null=True, blank=True)
-    fixed = models.BooleanField(null=True, blank=True)
+    fixed = models.CharField(max_length=500, null=True, blank=True)
     gender = models.CharField(max_length=50, null=True, blank=True)
     breed = models.CharField(max_length=50, null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
-    children = models.BooleanField(null=True, blank=True)
-    pets = models.BooleanField(null=True, blank=True)
+    children = models.CharField(max_length=500, null=True, blank=True)
+    pets = models.CharField(max_length=500, null=True, blank=True)
     description = models.CharField(max_length=2000, null=True, blank=True)
-    pictures = models.ImageField(null=True, blank=True, upload_to="images/")
+    pictures = models.CharField(max_length=2000, null=True, blank=True)
+    location = models.CharField(max_length=50, null=True, blank=True)
+    state = models.CharField(max_length=50, null=True, blank=True)
     user = models.ForeignKey('User', default=None, null=True, on_delete=models.CASCADE)
 
     def __int__(self):
@@ -26,7 +28,10 @@ class ItemListing(models.Model):
     animal = models.CharField(max_length=500, null=True, blank=True)
     category = models.CharField(max_length=500, null=True, blank=True)
     description = models.CharField(max_length=2000, null=True, blank=True)
-    pictures = models.ImageField(null=True, blank=True, upload_to="images/")
+    price = models.IntegerField(null=True, blank=True)
+    pictures = models.CharField(max_length=2000, null=True, blank=True)
+    location = models.CharField(max_length=50, null=True, blank=True)
+    state = models.CharField(max_length=50, null=True, blank=True)
     user = models.ForeignKey('User', default=None, null=True, on_delete=models.CASCADE)
 
     def __int__(self):
@@ -34,11 +39,11 @@ class ItemListing(models.Model):
 
 
 class User(models.Model):
-    firstName = models.CharField(max_length=50, )
+    firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     username = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
-    state = models.CharField(max_length=50, default=None, null=True, blank=True)
+    state = models.CharField(max_length=50, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
     address = models.CharField(max_length=50, null=True, blank=True)
     zipcode = models.CharField(max_length=50, null=True, blank=True)
@@ -51,11 +56,11 @@ class User(models.Model):
 
 class Lost(models.Model):
     name = models.CharField(max_length=50)
-    lastSeen = models.DateField(null=True, blank=True)
+    lastSeen = models.CharField(max_length=50, null=True, blank=True)
     description = models.CharField(max_length=2000, null=True, blank=True)
     phone = models.CharField(max_length=50, null=True, blank=True)
     email = models.CharField(max_length=50, null=True, blank=True)
-    pictures = models.ImageField(null=True, blank=True, upload_to="images/")
+    pictures = models.CharField(max_length=2000, null=True, blank=True)
     user = models.ForeignKey('User', default=None, null=True, on_delete=models.CASCADE)
 
     def __int__(self):

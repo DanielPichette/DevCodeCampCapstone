@@ -9,13 +9,13 @@ class PetListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = PetListing
         fields = ['id', 'name', 'type', 'age', 'fixed', 'gender', 'breed', 'price', 'children', 'pets',
-                  'description', 'pictures', 'user']
+                  'description', 'pictures', 'location', 'state', 'user']
 
 
 class ItemListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemListing
-        fields = ['id', 'name', 'condition', 'animal', 'category', 'description', 'pictures', 'user']
+        fields = ['id', 'name', 'condition', 'animal', 'category', 'location', 'state', 'description', 'price', 'pictures', 'user']
 
 
 class UserSerializer(serializers.ModelSerializer):
